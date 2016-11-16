@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from FatturaServiceService WSDL service -->
+
+  <service name="FatturaService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://rossella.alfasoft.it"/>
+      <parameter name="wsdlServiceElement" value="FatturaServiceService"/>
+      <parameter name="schemaQualified" value="http://rossella.alfasoft.it"/>
+      <parameter name="wsdlServicePort" value="FatturaService"/>
+      <parameter name="className" value="it.alfasoft.rossella.FatturaService"/>
+      <parameter name="wsdlPortType" value="FatturaService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://rossella.alfasoft.it" xmlns:retNS="http://rossella.alfasoft.it" xmlns:rtns="http://rossella.alfasoft.it" name="prendiFatturaConCodice" qname="operNS:prendiFatturaConCodice" returnQName="retNS:prendiFatturaConCodiceReturn" returnType="rtns:Fattura" soapAction="">
+        <parameter xmlns:pns="http://rossella.alfasoft.it" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:codiceCliente" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://rossella.alfasoft.it" xmlns:retNS="http://rossella.alfasoft.it" xmlns:rtns="http://rossella.alfasoft.it" xmlns:tns="http://rossella.alfasoft.it" name="prendiTutteFatture" qname="operNS:prendiTutteFatture" returnQName="retNS:prendiTutteFattureReturn" returnType="rtns:ArrayOf_xsd_anyType" returnItemQName="tns:item" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="prendiTutteFatture prendiFatturaConCodice"/>
+
+      <typeMapping xmlns:ns="http://rossella.alfasoft.it" qname="ns:&gt;prendiFatturaConCodice" type="java:it.alfasoft.rossella.PrendiFatturaConCodice" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://rossella.alfasoft.it" qname="ns:&gt;prendiTutteFatture" type="java:it.alfasoft.rossella.PrendiTutteFatture" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://rossella.alfasoft.it" qname="ns:Fattura" type="java:it.alfasoft.rossella.Fattura" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://rossella.alfasoft.it" qname="ns:&gt;prendiFatturaConCodiceResponse" type="java:it.alfasoft.rossella.PrendiFatturaConCodiceResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <arrayMapping xmlns:ns="http://rossella.alfasoft.it" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema" qname="ns:ArrayOf_xsd_anyType" type="java:java.lang.Object[]" innerType="cmp-ns:anyType" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://rossella.alfasoft.it" qname="ns:&gt;prendiTutteFattureResponse" type="java:it.alfasoft.rossella.PrendiTutteFattureResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/it/alfasoft/rossella/Fattura.java=UTF-8
+encoding//src/it/alfasoft/rossella/FatturaService.java=UTF-8
+encoding//src/it/alfasoft/rossella/FatturaServiceService.java=UTF-8
+encoding//src/it/alfasoft/rossella/FatturaServiceServiceLocator.java=UTF-8
+encoding//src/it/alfasoft/rossella/FatturaServiceSoapBindingStub.java=UTF-8
+encoding//src/it/alfasoft/rossella/PrendiFatturaConCodice.java=UTF-8
+encoding//src/it/alfasoft/rossella/PrendiFatturaConCodiceResponse.java=UTF-8
+encoding//src/it/alfasoft/rossella/PrendiTutteFatture.java=UTF-8
+encoding//src/it/alfasoft/rossella/PrendiTutteFattureResponse.java=UTF-8
